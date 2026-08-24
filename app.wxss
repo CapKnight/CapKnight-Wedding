@@ -1,0 +1,114 @@
+/* ========== 还原原 uni-app 全局样式 ========== */
+
+page {
+  background-color: #4b352b;
+  font-size: 27rpx;
+  color: #d5c6c2;
+  line-height: 47rpx;
+  width: 750rpx;
+  overflow-x: hidden;
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+}
+
+view, text {
+  box-sizing: border-box;
+}
+
+/* ========== 通用装饰组件样式（来自 utils/*.vue）========== */
+
+/* sLine.vue - 分隔小花纹 */
+.sLine {
+  width: 750rpx;
+  height: 160rpx;
+  background-image: url('/images/static/ls.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 387rpx auto;
+}
+
+/* pHeng.vue - 三个横向小方块 */
+.pHeng {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pHeng .p1 { background-color: #99785f; }
+.pHeng .p2 { background-color: #7d5942; }
+.pHeng .p3 { background-color: #311b11; }
+
+/* pZong.vue - 三个纵向小方块 */
+.pZong .p1 { background-color: #99785f; }
+.pZong .p2 { background-color: #7d5942; }
+.pZong .p3 { background-color: #311b11; }
+
+/* bTitle.vue - 带边框装饰的标题 */
+.bTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80rpx;
+  margin-bottom: 40rpx;
+}
+.bTitle .line {
+  width: 30rpx;
+  height: 26rpx;
+}
+.bTitle .left {
+  border-top: 4rpx solid #7a5138;
+  border-left: 4rpx solid #7a5138;
+  margin-bottom: 60rpx;
+  margin-right: -10rpx;
+}
+.bTitle .title {
+  color: #e6bca3;
+  padding: 4rpx 35rpx;
+  background-color: #7a5138;
+  font-size: 28rpx;
+}
+.bTitle .right {
+  border-bottom: 4rpx solid #7a5138;
+  border-right: 4rpx solid #7a5138;
+  margin-top: 60rpx;
+  margin-left: -10rpx;
+}
+
+/* xBtn.vue - 带斜杠的标签按钮 */
+.xBtn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.xBtn .left {
+  margin-right: -36rpx;
+  padding-bottom: 50rpx;
+}
+.xBtn .type1 {
+  color: #957870;
+  font-size: 30rpx;
+}
+.xBtn .type2 {
+  font-size: 38rpx;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.xBtn .right {
+  display: flex;
+}
+.xBtn .sln {
+  transform: rotate(50deg);
+  height: 90rpx;
+  border-left: 2rpx solid #655043;
+  margin-top: -38rpx;
+  margin-left: 60rpx;
+  margin-right: -10rpx;
+}
+.xBtn .txt-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56rpx;
+  color: #7a6760;
+  font-size: 26rpx;
+  padding: 0 46rpx;
+  background-color: #e1c0a1;
+}

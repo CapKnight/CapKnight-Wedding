@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/album/album",
+    "pages/location/location"
+  ],
+  "window": {
+    "backgroundColor": "#4b352b",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4b352b",
+    "navigationBarTitleText": "婚礼请柬",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
