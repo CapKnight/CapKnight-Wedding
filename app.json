@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/album/album",
     "pages/location/location"
   ],
   "window": {

@@ -20,21 +20,14 @@ view, text {
 .sLine {
   width: 750rpx;
   height: 160rpx;
-  background-image: url('/images/static/ls.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 387rpx auto;
-}
-
-/* pHeng.vue - 三个横向小方块 */
-.pHeng {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.pHeng .p1 { background-color: #99785f; }
-.pHeng .p2 { background-color: #7d5942; }
-.pHeng .p3 { background-color: #311b11; }
+.sLine image {
+  width: 387rpx;
+  height: auto;
+}
 
 /* pZong.vue - 三个纵向小方块 */
 .pZong .p1 { background-color: #99785f; }

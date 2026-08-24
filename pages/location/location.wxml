@@ -22,26 +22,5 @@
     <view class="btn" bindtap="onCopy">复制地址</view>
   </view>
 
-  <!-- 联系电话（如有） -->
-  <view class="contact" wx:if="{{groomPhone || bridePhone}}">
-    <view class="contact-title">联系我们</view>
-    <view class="contact-box">
-      <view
-        wx:if="{{groomPhone}}"
-        class="contact-item"
-        bindtap="callGroom"
-      >
-        <view class="contact-role">联系新郎</view>
-        <view class="contact-phone">{{groomPhone}}</view>
-      </view>
-      <view
-        wx:if="{{bridePhone}}"
-        class="contact-item"
-        bindtap="callBride"
-      >
-        <view class="contact-role">联系新娘</view>
-        <view class="contact-phone">{{bridePhone}}</view>
-      </view>
-    </view>
-  </view>
+  
 </view>

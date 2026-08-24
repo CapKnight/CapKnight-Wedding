@@ -58,10 +58,16 @@ App({
     brideName: '冯雅雪',
     weddingDate: '2026年9月26日',
     weddingLunar: '农历：八月十六（星期六）',
+    // 婚礼仪式时间（用于首页倒计时，格式：'YYYY-MM-DD HH:mm:ss'）
+    // 婚礼当天 0 点开始进入"今天我们结婚啦"状态，仪式时间到后进入"已经结婚啦"状态
+    ceremonyDateTime: '2026-09-26 12:30:00',
 
     // ===== 婚礼地点（eAddr 节 与 独立 location 页共用）=====
-    venueName: '食神(仲景路店)',
+    venueName: '食神酒店',
     venueHall: '三楼',
-    venueAddress: '河南省南阳市张衡路与仲景路交汇处向南100米',
+    venueAddress: '河南省南阳市卧龙区张衡街道仲景大道辅路长安1号写字楼',
+    // 经纬度：到 https://lbs.qq.com/getPoint/ 拾取后填入（前纬后经）
+    latitude: 33.020855,
+    longitude: 112.554214,
   }
 })

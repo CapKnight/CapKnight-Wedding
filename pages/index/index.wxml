@@ -5,52 +5,60 @@
   <!-- ① topTitle.vue  顶部欢迎区 -->
   <!-- ============================================================ -->
   <view class="top0">
+    <image class="bgImg" src="/images/static/l1.png" mode="widthFix" />
     <view class="top-content">
-      <view class="thpt">
-        <view class="pt pt1"></view>
-        <view class="pt pt2"></view>
-        <view class="pt pt3"></view>
-      </view>
       <view class="content-main">
-        <view>
-          <p>嗨~当你看到这个小程序时</p>
-          <p>我们的婚礼筹备已经接近尾声了</p>
-        </view>
-        <view style="margin-top: 90rpx;">
-          <p>这是一篇由我们俩共同编写的</p>
-          <p>充满爱与期待的婚礼邀请函</p>
-          <p>想把"我们"说与你听</p>
-        </view>
         <view class="nameLine">
           <view class="name">{{groomName}} ♡ {{brideName}}</view>
-          <view class="xxian"></view>
-          <view class="nameTime">{{dateDotted}}</view>
+          <view class="nameTime">
+            <view wx:for="{{dateDotted}}" wx:key="*this">{{item}}</view>
+          </view>
         </view>
       </view>
     </view>
-    <view class="sLine"></view>
+    <view class="sLine">
+      <image src="/images/static/ls.png" mode="widthFix" />
+    </view>
   </view>
 
   <!-- ============================================================ -->
-  <!-- ② page0.vue  婚纱照 + 诗句 + 新人介绍 + 电影胶片 -->
+  <!-- ② page0.vue  婚纱照 + 新人介绍 + 电影胶片 -->
   <!-- ============================================================ -->
   <view class="page0">
-    <!-- pHeng 装饰 -->
-    <view style="width: 120rpx;padding-top:96rpx;margin-left:315rpx;">
-      <view class="pHeng">
-        <view class="p1" style="width:24rpx;height:24rpx;"></view>
-        <view class="p2" style="width:24rpx;height:24rpx;margin-left:24rpx;"></view>
-        <view class="p3" style="width:24rpx;height:24rpx;margin-left:24rpx;"></view>
-      </view>
+    <view class="img0">
+      <image src="/images/photo/02.jpg" mode="widthFix" />
     </view>
 
-    <view class="img0" bindtap="goAlbum"></view>
+    <!-- 倒计时 -->
+    <view class="countdown">
+      <!-- 状态 1：婚礼前 -->
+      <block wx:if="{{countdownStatus === 'before'}}">
+        <view class="cd-title">距离我们的婚礼还有：</view>
+        <view class="cd-time">
+          <text class="cd-num">{{cdDays}}</text> 天
+          <text class="cd-num">{{cdHours}}</text> 时
+          <text class="cd-num">{{cdMinutes}}</text> 分
+          <text class="cd-num">{{cdSeconds}}</text> 秒
+        </view>
+      </block>
 
-    <view class="text">
-      <text wx:for="{{text2}}" wx:key="*this"></text>
-      <text>\n</text>
+      <!-- 状态 2：婚礼当天 -->
+      <block wx:elif="{{countdownStatus === 'today'}}">
+        <view class="cd-title">今天我们结婚啦：</view>
+        <view class="cd-time">
+          <text class="cd-num">{{cdDays}}</text> 天
+          <text class="cd-num">{{cdHours}}</text> 时
+          <text class="cd-num">{{cdMinutes}}</text> 分
+          <text class="cd-num">{{cdSeconds}}</text> 秒
+        </view>
+      </block>
+
+      <!-- 状态 3：婚礼后 -->
+      <block wx:else>
+        <view class="cd-title cd-after-title">我们已经结婚啦。</view>
+        <view class="cd-after-sub">感谢你来见证我们的幸福。</view>
+      </block>
     </view>
-    <view class="text">{{text2}}</view>
 
     <view class="linTxt">
       <!-- 新娘 xBtn -->
@@ -61,11 +69,15 @@
           <view class="txt-content">{{brideName}}</view>
         </view>
       </view>
-      <view class="circlePhoto pt2"></view>
+      <view class="circlePhoto pt2">
+        <image src="/images/photo/04.jpg" mode="aspectFill" />
+      </view>
     </view>
 
     <view class="linTxt">
-      <view class="circlePhoto pt1"></view>
+      <view class="circlePhoto pt1">
+        <image src="/images/photo/03.jpg" mode="aspectFill" />
+      </view>
       <!-- 新郎 xBtn -->
       <view class="xBtn">
         <view class="left type1">新郎</view>
@@ -76,133 +88,14 @@
       </view>
     </view>
 
-    <view class="text">{{text3}}</view>
-
     <view class="flim">
-      <image src="/images/static/flim.png" class="flimBorder" mode="aspectFit" />
+      <image class="flimImg" src="/images/photo/05.jpg" mode="aspectFill" />
+      <image class="flimBorder" src="/images/static/flim.png" mode="aspectFit" />
     </view>
   </view>
 
   <!-- ============================================================ -->
-  <!-- ③ page1.vue  5 个章节：相遇/相知/相恋/相伴/嘉姻 -->
-  <!-- ============================================================ -->
-  <view class="page1">
-    <view class="sLine" style="margin-top: 40rpx;"></view>
-
-    <block wx:for="{{chapters}}" wx:key="title" wx:for-item="ch" wx:for-index="idx">
-      <view class="chapter">
-
-        <!-- 标题：奇数 / 偶数奇偶对称 -->
-        <view class="title">
-          <block wx:if="{{idx % 2 === 0}}">
-            <view class="pZong pZon" style="width:20rpx;">
-              <view class="p1" style="width:20rpx;height:20rpx;margin-bottom:20rpx;"></view>
-              <view class="p2" style="width:20rpx;height:20rpx;margin-bottom:20rpx;"></view>
-              <view class="p3" style="width:20rpx;height:20rpx;"></view>
-            </view>
-            <view class="xBtn">
-              <view class="left type2">Chapter {{idx+1}}</view>
-              <view class="right">
-                <view class="sln"></view>
-                <view class="txt-content">{{ch.title}}</view>
-              </view>
-            </view>
-          </block>
-          <block wx:else>
-            <view class="xBtn">
-              <view class="left type2">Chapter {{idx+1}}</view>
-              <view class="right">
-                <view class="sln"></view>
-                <view class="txt-content">{{ch.title}}</view>
-              </view>
-            </view>
-            <view class="pZong pZon2" style="width:20rpx;">
-              <view class="p1" style="width:20rpx;height:20rpx;margin-bottom:20rpx;"></view>
-              <view class="p2" style="width:20rpx;height:20rpx;margin-bottom:20rpx;"></view>
-              <view class="p3" style="width:20rpx;height:20rpx;"></view>
-            </view>
-          </block>
-        </view>
-
-        <!-- 照片区：奇偶数顺序相反 -->
-        <view class="center">
-          <view class="btmBox" wx:if="{{idx % 2 === 0}}">
-            <view class="lin linL"></view>
-            <view class="txt txtL">Love is the beauty\nof the soul</view>
-          </view>
-          <view class="btmBox" wx:else>
-            <view class="lin linR"></view>
-            <view class="txt txtR">Love is the beauty\nof the soul</view>
-          </view>
-
-          <block wx:if="{{idx % 2 === 0}}">
-            <view class="chapter-pt1 left"></view>
-            <view class="chapter-pt2"></view>
-          </block>
-          <block wx:else>
-            <view class="chapter-pt2 left"></view>
-            <view class="chapter-pt1"></view>
-          </block>
-        </view>
-
-        <view class="content">{{ch.content}}</view>
-        <view class="pt3"></view>
-      </view>
-    </block>
-  </view>
-
-  <!-- ============================================================ -->
-  <!-- ④ page2.vue  相识/相爱/结婚 诗句 + To 亲爱的你们 书信 -->
-  <!-- ============================================================ -->
-  <view class="page2">
-    <view class="sLine" style="margin: 120rpx 0;"></view>
-
-    <view class="content">
-      <block wx:for="{{page2Lines}}" wx:key="*this" wx:for-item="line">
-        <view>{{line}}</view>
-        <view class="blank-line"></view>
-        <view class="blank-line"></view>
-      </block>
-    </view>
-
-    <view class="pto"></view>
-
-    <view class="center">
-      <view style="width: 90rpx;padding-top:60rpx;margin-left:60rpx;">
-        <view class="pHeng">
-          <view class="p1" style="width:18rpx;height:18rpx;"></view>
-          <view class="p2" style="width:18rpx;height:18rpx;margin-left:18rpx;"></view>
-          <view class="p3" style="width:18rpx;height:18rpx;margin-left:18rpx;"></view>
-        </view>
-      </view>
-
-      <view class="contentBox">
-        <view class="title">
-          <view class="to">To</view>
-          <view class="ln"></view>
-          <view class="you">最亲爱的你们</view>
-        </view>
-
-        <view class="letter">
-          <block wx:for="{{letter}}" wx:key="*this" wx:for-item="p">
-            <view>{{p}}</view>
-            <view class="blank-line"></view>
-            <view class="blank-line"></view>
-          </block>
-        </view>
-
-        <view class="inv">邀请人：{{groomName}} ♡ {{brideName}}</view>
-      </view>
-    </view>
-
-    <view class="bottom">
-      <view class="ptoe"></view>
-      <view class="foot">{{groomName}}♡{{brideName}} ｜ SAVE THE DATE ｜ {{dateDotted}}</view>
-    </view>
-  </view>
-
-  <!-- ============================================================ -->
-  <!-- ⑤ eAddr.vue  时间地点 + 电话 -->
+  <!-- ③ eAddr.vue  时间地点 -->
   <!-- ============================================================ -->
   <view class="eAddr" id="addr">
     <view class="bTitle">
@@ -212,35 +105,30 @@
     </view>
 
     <view class="text">{{timeText}}</view>
+    <view class="text ceremony-time">预计婚礼举行时间：11:30AM</view>
 
     <view class="mapBox" bindtap="onNavigate">
+      <image class="mapBg" src="/images/static/map.png" mode="aspectFill" />
       <view class="top">
         <view class="title">
           <view class="mainTitle">{{venueName}}</view>
           <view class="subTitle">{{venueHall}}</view>
         </view>
-        <view class="right"></view>
+        <view class="right">
+          <image src="/images/static/dh.png" mode="aspectFill" />
+        </view>
       </view>
     </view>
 
     <view class="tips">（点击下面图标可导航至这个位置，不迷路）</view>
 
-    <view class="phoneBox">
-      <view class="phoneItem" bindtap="callGroom">
-        <image src="/images/static/phone1.png" class="phoneIcon" />
-        <view class="phoneText">- 联系新郎 -</view>
-      </view>
-      <view class="phoneItem" bindtap="callBride">
-        <image src="/images/static/phone2.png" class="phoneIcon" />
-        <view class="phoneText">- 联系新娘 -</view>
-      </view>
-    </view>
-
-    <view class="text">{{blessing}}</view>
-
     <view class="ptBox">
-      <view class="pt pt1"></view>
-      <view class="pt pt2"></view>
+      <view class="pt pt1">
+        <image src="/images/photo/09.jpg" mode="widthFix" />
+      </view>
+      <view class="pt pt2">
+        <image src="/images/photo/08.jpg" mode="widthFix" />
+      </view>
     </view>
   </view>
 
@@ -254,7 +142,9 @@
       <view class="right line"></view>
     </view>
 
-    <view class="pt"></view>
+    <view class="pt">
+      <image src="/images/photo/10.jpg" mode="aspectFill" />
+    </view>
 
     <view class="tips-list">
       <view class="tipItem" wx:for="{{tipItems}}" wx:key="title" wx:for-item="tip">
@@ -271,24 +161,8 @@
     </view>
 
     <view class="end-area">
-      <view class="sLine"></view>
-      <view class="end-text">{{ending}}</view>
-    </view>
-  </view>
-
-  <!-- ============================================================ -->
-  <!-- ⑦ end.vue  记忆碎片（改为跳转独立相册页）-->
-  <!-- ============================================================ -->
-  <view class="end-section">
-    <view class="bTitle">
-      <view class="left line"></view>
-      <view class="title">记忆碎片</view>
-      <view class="right line"></view>
-    </view>
-
-    <view class="album-entry" bindtap="goAlbum">
-      <view class="album-text">
-        查看婚纱照相册 →
+      <view class="sLine">
+        <image src="/images/static/ls.png" mode="widthFix" />
       </view>
     </view>
   </view>
@@ -296,6 +170,10 @@
   <!-- ============================================================ -->
   <!-- 右下角悬浮导航按钮（跳到地址节）+ 页尾留白 -->
   <!-- ============================================================ -->
-  <view class="nav" bindtap="scrollToAddr"></view>
-  <view class="pic"></view>
+  <view class="nav" bindtap="scrollToAddr">
+    <image src="/images/static/nav.png" mode="aspectFit" />
+  </view>
+  <view class="pic">
+    <image src="/images/static/l2.png" mode="widthFix" />
+  </view>
 </view>

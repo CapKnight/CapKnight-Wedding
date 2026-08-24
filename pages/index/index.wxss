@@ -12,10 +12,10 @@
   margin: 80rpx auto;
   width: 150rpx;
   height: 258rpx;
-  background-image: url('/images/static/l2.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 150rpx auto;
+}
+.mainContent .pic image {
+  width: 150rpx;
+  height: 258rpx;
 }
 
 .mainContent .nav {
@@ -24,47 +24,42 @@
   right: 50rpx;
   width: 80rpx;
   height: 100rpx;
-  background-image: url('/images/static/nav.png');
-  background-position: center;
-  background-size: 90rpx;
-  background-repeat: no-repeat;
   box-shadow: #7a5138 0 0 6rpx 1rpx;
   background-color: rgba(57, 181, 44, .8);
   border-radius: 10rpx;
   margin-top: 30rpx;
   z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mainContent .nav image {
+  width: 90rpx;
+  height: 90rpx;
 }
 
 /* ==================== ① topTitle.vue ==================== */
 .top0 {
   height: 836rpx;
-  background-image: url('/images/static/l1.png');
-  background-size: 502rpx auto;
-  background-repeat: no-repeat;
-  background-position: -40rpx -36rpx;
   display: block;
+  position: relative;
 }
-
+.top0 .bgImg {
+  position: absolute;
+  top: -36rpx;
+  left: -40rpx;
+  width: 502rpx;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+}
 .top0 .top-content {
+  position: relative;
+  z-index: 1;
   padding-top: 136rpx;
   padding-left: 296rpx;
   width: 386rpx;
 }
-
-.top0 .thpt {
-  display: flex;
-  width: 386rpx;
-  padding-left: 287rpx;
-}
-
-.top0 .thpt .pt {
-  width: 15rpx;
-  height: 15rpx;
-  margin-left: 18rpx;
-}
-.top0 .thpt .pt1 { background-color: #99785f; }
-.top0 .thpt .pt2 { background-color: #7d5942; }
-.top0 .thpt .pt3 { background-color: #311b11; }
 
 .top0 .content-main {
   text-align: right;
@@ -83,35 +78,71 @@
 
 .top0 .name {
   font-weight: bold;
-}
-
-.top0 .xxian {
-  transform: rotate(29deg);
-  height: 90rpx;
-  border-left: 2rpx solid #d5c6c2;
-  margin-left: 18rpx;
+  font-size: 50rpx; 
+  line-height: 70rpx; 
 }
 
 .top0 .nameTime {
-  margin-top: 46rpx;
-  margin-left: 18rpx;
+  margin-top: 100rpx;
+  margin-left: 45rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 90rpx;
+  font-size: 50rpx;
+  min-width: 200rpx;
 }
 
 /* ==================== ② page0.vue ==================== */
 .page0 .img0 {
   width: 594rpx;
-  height: 831rpx;
   margin: 77rpx;
-  background-image: url('/images/photo/02.jpg');
-  background-position: center;
-  background-size: 700rpx auto;
+  overflow: hidden;
+}
+.page0 .img0 image {
+  width: 100%;
+  height: auto;
 }
 
-.page0 .text {
+/* 倒计时 */
+.page0 .countdown {
   text-align: center;
+  margin: 60rpx 40rpx;
+  padding: 40rpx 30rpx;
+  border: 2rpx solid rgba(230, 188, 163, 0.4);
+  border-radius: 16rpx;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.page0 .cd-title {
+  color: #e6bca3;
+  font-size: 28rpx;
+  margin-bottom: 30rpx;
+  letter-spacing: 2rpx;
+}
+
+.page0 .cd-time {
+  color: #d5c6c2;
+  font-size: 30rpx;
+  line-height: 50rpx;
+}
+
+.page0 .cd-num {
+  color: #e6bca3;
+  font-weight: bold;
+  font-size: 48rpx;
+  margin: 0 6rpx;
+}
+
+.page0 .cd-after-title {
+  font-size: 36rpx;
+  margin-bottom: 20rpx;
+}
+
+.page0 .cd-after-sub {
   color: #cebdb5;
-  margin: 80rpx 0;
-  white-space: pre-line;
+  font-size: 26rpx;
+  margin-top: 10rpx;
 }
 
 .page0 .linTxt {
@@ -125,209 +156,38 @@
   width: 260rpx;
   height: 260rpx;
   border-radius: 50%;
+  overflow: hidden;
 }
-
+.page0 .circlePhoto image {
+  width: 100%;
+  height: 100%;
+}
 .page0 .circlePhoto.pt1 {
   margin-right: 50rpx;
-  background-image: url('/images/photo/03.jpg');
-  background-position: 370rpx 580rpx;
-  background-size: 520rpx auto;
 }
-
 .page0 .circlePhoto.pt2 {
   margin-left: 80rpx;
-  background-image: url('/images/photo/04.jpg');
-  background-position: -120rpx 550rpx;
-  background-size: 490rpx auto;
 }
 
 .page0 .flim {
-  background-image: url('/images/photo/05.jpg');
-  background-position: center;
-  background-size: 650rpx auto;
+  position: relative;
   width: 670rpx;
   height: 448rpx;
   margin: 0 40rpx;
 }
-
-.page0 .flimBorder {
+.page0 .flim .flimImg {
+  width: 650rpx;
+  height: 448rpx;
+}
+.page0 .flim .flimBorder {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 670rpx;
   height: 450rpx;
 }
 
-/* ==================== ③ page1.vue + chapter.vue ==================== */
-.page1 .chapter .title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 60rpx;
-}
-
-.page1 .chapter .pZon {
-  margin-right: 40rpx;
-  padding-bottom: 40rpx;
-}
-
-.page1 .chapter .pZon2 {
-  margin-left: 40rpx;
-}
-
-.page1 .chapter .center {
-  margin: 80rpx 50rpx;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.page1 .chapter .btmBox {
-  position: absolute;
-  top: 420rpx;
-}
-
-.page1 .chapter .lin {
-  width: 285rpx;
-  height: 2rpx;
-  background-color: #e1c0a1;
-  margin-bottom: 20rpx;
-  z-index: 20;
-}
-
-.page1 .chapter .txt {
-  color: #876c64;
-  white-space: pre-line;
-}
-
-.page1 .chapter .linL { margin-left: 100rpx; }
-.page1 .chapter .txtL { margin-left: -20rpx; }
-.page1 .chapter .linR { margin-left: 260rpx; }
-.page1 .chapter .txtR { margin-right: -130rpx; text-align: right; }
-
-.page1 .chapter .chapter-pt1 {
-  width: 242rpx;
-  height: 347rpx;
-  margin-bottom: 80rpx;
-  background-color: rgba(230, 188, 163, 0.15);
-}
-
-.page1 .chapter .chapter-pt1.left { margin-right: 80rpx; }
-
-.page1 .chapter .chapter-pt2 {
-  width: 336rpx;
-  height: 505rpx;
-  background-color: rgba(230, 188, 163, 0.2);
-}
-
-.page1 .chapter .content {
-  padding-left: 72rpx;
-  white-space: pre-line;
-}
-
-.page1 .chapter .pt3 {
-  width: 630rpx;
-  height: 400rpx;
-  margin: 80rpx 60rpx;
-  background-color: rgba(230, 188, 163, 0.12);
-}
-
-/* ==================== ④ page2.vue ==================== */
-.page2 .content {
-  text-align: center;
-  margin-bottom: 120rpx;
-  white-space: pre-line;
-}
-
-.page2 .content .blank-line {
-  height: 0;
-}
-
-.page2 .pto {
-  width: 580rpx;
-  height: 353rpx;
-  margin: auto;
-  border: 11rpx solid #be926d;
-  box-shadow: #e6bca3 0 0 0 13rpx;
-  background-image: url('/images/photo/06.jpg');
-  background-position: center;
-  background-size: 720rpx auto;
-}
-
-.page2 .center {
-  min-height: 1200rpx;
-  width: 750rpx;
-  background-image: url('/images/static/l2.png');
-  background-size: 645rpx 1110rpx;
-  background-repeat: no-repeat;
-  background-position: 199rpx 20rpx;
-}
-
-.page2 .contentBox {
-  margin: 40rpx 60rpx;
-}
-
-.page2 .title {
-  display: flex;
-  align-items: center;
-  font-size: 27rpx;
-}
-
-.page2 .to {
-  color: #cebdb5;
-  font-weight: bold;
-}
-
-.page2 .ln {
-  transform: rotate(50deg);
-  width: 2rpx;
-  height: 56rpx;
-  background-color: #cebdb5;
-  margin-left: 16rpx;
-  margin-right: 18rpx;
-  margin-top: 40rpx;
-}
-
-.page2 .you {
-  color: #FFFFFF;
-  font-style: italic;
-  margin-top: 80rpx;
-}
-
-.page2 .letter {
-  text-align: left;
-  margin-top: 110rpx;
-  white-space: pre-line;
-}
-
-.page2 .letter .blank-line {
-  height: 0;
-}
-
-.page2 .inv {
-  margin-top: 110rpx;
-  text-align: center;
-}
-
-.page2 .bottom {
-  margin: auto;
-  width: 680rpx;
-  border-top: 14rpx solid #e6bca3;
-}
-
-.page2 .ptoe {
-  height: 428rpx;
-  background-image: url('/images/photo/07.jpg');
-  background-position: center 0rpx;
-  background-repeat: no-repeat;
-  background-size: 720rpx auto;
-}
-
-.page2 .foot {
-  text-align: center;
-  color: #473529;
-  padding: 8rpx 0;
-  background-color: #e6bca3;
-}
-
-/* ==================== ⑤ eAddr.vue ==================== */
+/* ==================== ③ eAddr.vue ==================== */
 .eAddr .tips {
   text-align: center;
   color: #cebdb5;
@@ -336,16 +196,24 @@
 }
 
 .eAddr .mapBox {
+  position: relative;
   width: 470rpx;
   margin: 50rpx auto;
   border-radius: 26rpx;
   padding: 20rpx 56rpx;
-  background-image: url('/images/static/map.png');
-  background-size: 470rpx auto;
-  background-position: center;
 }
-
+.eAddr .mapBox .mapBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  border-radius: 26rpx;
+}
 .eAddr .mapBox .top {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -364,42 +232,18 @@
 }
 
 .eAddr .mapBox .right {
+  position: relative;
+  z-index: 1;
   height: 68rpx;
   width: 68rpx;
-  background-image: url('/images/static/dh.png');
-  background-position: center;
-  background-size: 132rpx;
   border-radius: 50%;
-  background-repeat: no-repeat;
+  overflow: hidden;
 }
-
-.eAddr .phoneBox {
-  padding: 40rpx 180rpx;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.eAddr .phoneItem {
-  width: 160rpx;
-  padding: 50rpx 10rpx;
-  border-radius: 20rpx;
-  box-shadow: #7a5138 0 0 6rpx 1rpx;
-  background-color: rgba(0, 0, 0, .1);
-}
-
-.eAddr .phoneIcon {
-  width: 68rpx;
-  height: 68rpx;
-  margin: 0 46rpx;
-}
-
-.eAddr .phoneText {
-  margin-top: 30rpx;
-  color: #cebdb5;
-  font-size: 28rpx;
-  line-height: 36rpx;
-  text-align: center;
+.eAddr .mapBox .right image {
+  width: 132rpx;
+  height: 132rpx;
+  margin-left: -32rpx;
+  margin-top: -32rpx;
 }
 
 .eAddr .text {
@@ -411,32 +255,33 @@
   white-space: pre-line;
 }
 
+.eAddr .ceremony-time {
+  margin-top: 10rpx;
+  color: #cebdb5;
+}
+
 .eAddr .ptBox {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   margin-top: 80rpx;
 }
 
 .eAddr .ptBox .pt {
   width: 274rpx;
-  height: 407rpx;
+}
+.eAddr .ptBox .pt image {
+  width: 100%;
+  height: auto;
 }
 
 .eAddr .ptBox .pt1 {
   margin-right: 28rpx;
-  margin-bottom: 124rpx;
-  background-image: url('/images/photo/09.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 274rpx auto;
+  margin-top: 120rpx;
 }
 
 .eAddr .ptBox .pt2 {
-  background-image: url('/images/photo/08.jpg');
-  background-position: center -120rpx;
-  background-repeat: no-repeat;
-  background-size: 600rpx auto;
+  margin-top: 0;
 }
 
 /* ==================== ⑥ eTips.vue ==================== */
@@ -444,10 +289,11 @@
   width: 606rpx;
   height: 370rpx;
   margin: 50rpx auto;
-  background-image: url('/images/photo/10.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 606rpx auto;
+  overflow: hidden;
+}
+.eTips .pt image {
+  width: 606rpx;
+  height: 370rpx;
 }
 
 .eTips .tips-list {
@@ -475,29 +321,4 @@
   font-size: 24rpx;
   line-height: 49rpx;
   color: #cebdb5;
-}
-
-.eTips .end-text {
-  margin-top: 76rpx;
-  text-align: center;
-  font-size: 26rpx;
-  line-height: 49rpx;
-  color: #cebdb5;
-  white-space: pre-line;
-}
-
-/* ==================== ⑦ 记忆碎片入口 ==================== */
-.end-section .album-entry {
-  text-align: center;
-  padding: 40rpx;
-}
-
-.end-section .album-text {
-  display: inline-block;
-  padding: 20rpx 60rpx;
-  border: 2rpx solid #e6bca3;
-  border-radius: 60rpx;
-  color: #e6bca3;
-  font-size: 30rpx;
-  background: rgba(0, 0, 0, 0.1);
 }
