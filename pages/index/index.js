@@ -42,11 +42,19 @@ Page({
     cdDays: 0,
     cdHours: 0,
     cdMinutes: 0,
-    cdSeconds: 0
+    cdSeconds: 0,
+
+    // ===== 背景音乐 =====
+    musicPlaying: false,
+
+    // ===== 进入提示框 =====
+    showEntryTip: false
   },
 
   // 倒计时定时器引用
   _cdTimer: null,
+  // 背景音乐 audioContext
+  _audio: null,
 
   onLoad() {
     const g = app.globalData
@@ -78,12 +86,43 @@ Page({
     this._cdTimer = setInterval(() => {
       this._updateCountdown()
     }, 1000)
+
+    // 初始化背景音乐（不自动播放，等用户点击）
+    this._audio = wx.createInnerAudioContext()
+    this._audio.src = '/music/bgm.mp3'
+    this._audio.loop = true
+
+    // 显示进入提示框，5 秒后自动消失
+    this.setData({ showEntryTip: true })
+    this._tipTimer = setTimeout(() => {
+      this.setData({ showEntryTip: false })
+    }, 5000)
+  },
+
+  // 手动关闭进入提示框
+  closeEntryTip() {
+    if (this._tipTimer) {
+      clearTimeout(this._tipTimer)
+      this._tipTimer = null
+    }
+    this.setData({ showEntryTip: false })
   },
 
   onUnload() {
     if (this._cdTimer) {
       clearInterval(this._cdTimer)
       this._cdTimer = null
+    }
+    // 清理提示框定时器
+    if (this._tipTimer) {
+      clearTimeout(this._tipTimer)
+      this._tipTimer = null
+    }
+    // 停止并销毁背景音乐
+    if (this._audio) {
+      this._audio.stop()
+      this._audio.destroy()
+      this._audio = null
     }
   },
 
@@ -138,24 +177,16 @@ Page({
     })
   },
 
-  // 跳转地点页
-  goLocation() {
-    wx.navigateTo({ url: '/pages/location/location' })
-  },
-
-  // 保存照片 / 滚动到底部
-  scrollToAddr() {
-    const q = wx.createSelectorQuery()
-    q.select('#addr').boundingClientRect()
-    q.selectViewport().scrollOffset()
-    q.exec((res) => {
-      if (res && res[0] && res[1]) {
-        wx.pageScrollTo({
-          scrollTop: res[0].top + res[1].scrollTop - 60,
-          duration: 300
-        })
-      }
-    })
+  // 切换背景音乐播放/暂停
+  toggleMusic() {
+    if (!this._audio) return
+    if (this.data.musicPlaying) {
+      this._audio.pause()
+      this.setData({ musicPlaying: false })
+    } else {
+      this._audio.play()
+      this.setData({ musicPlaying: true })
+    }
   },
 
   // 分享

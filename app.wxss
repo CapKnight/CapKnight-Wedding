@@ -79,11 +79,6 @@ view, text {
   color: #957870;
   font-size: 30rpx;
 }
-.xBtn .type2 {
-  font-size: 38rpx;
-  font-weight: bold;
-  color: #FFFFFF;
-}
 .xBtn .right {
   display: flex;
 }

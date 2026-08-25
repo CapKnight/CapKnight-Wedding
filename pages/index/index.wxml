@@ -1,6 +1,14 @@
 <!-- ========== 纵向单页，1:1 还原原 uni-app 顺序 ========== -->
 <view class="mainContent">
 
+  <!-- 进入提示框（3秒后自动消失，可手动关闭） -->
+  <view class="entry-tip" wx:if="{{showEntryTip}}">
+    <view class="entry-tip-content">
+      点击右上角音乐图标播放歌曲，新郎选了很久的~
+    </view>
+    <view class="entry-tip-close" bindtap="closeEntryTip">×</view>
+  </view>
+
   <!-- ============================================================ -->
   <!-- ① topTitle.vue  顶部欢迎区 -->
   <!-- ============================================================ -->
@@ -106,21 +114,9 @@
 
     <view class="text">{{timeText}}</view>
     <view class="text ceremony-time">预计婚礼举行时间：11:30AM</view>
-
-    <view class="mapBox" bindtap="onNavigate">
-      <image class="mapBg" src="/images/static/map.png" mode="aspectFill" />
-      <view class="top">
-        <view class="title">
-          <view class="mainTitle">{{venueName}}</view>
-          <view class="subTitle">{{venueHall}}</view>
-        </view>
-        <view class="right">
-          <image src="/images/static/dh.png" mode="aspectFill" />
-        </view>
-      </view>
-    </view>
-
-    <view class="tips">（点击下面图标可导航至这个位置，不迷路）</view>
+    <view class="text venue-text">{{venueName}} {{venueHall}}</view>
+    <view class="text venue-text">{{venueAddress}}</view>
+    <view class="tips">（点击右上角导航图标可导航至这个位置）</view>
 
     <view class="ptBox">
       <view class="pt pt1">
@@ -168,12 +164,21 @@
   </view>
 
   <!-- ============================================================ -->
-  <!-- 右下角悬浮导航按钮（跳到地址节）+ 页尾留白 -->
+  <!-- 右上角悬浮导航按钮（调起微信地图导航）+ 页尾留白 -->
   <!-- ============================================================ -->
-  <view class="nav" bindtap="scrollToAddr">
+  <view class="nav" bindtap="onNavigate">
     <image src="/images/static/nav.png" mode="aspectFit" />
   </view>
   <view class="pic">
     <image src="/images/static/l2.png" mode="widthFix" />
+  </view>
+
+  <!-- 背景音乐按钮 -->
+  <view class="music-btn {{musicPlaying ? 'playing' : ''}}" bindtap="toggleMusic">
+    <view class="music-icon">
+      <view class="bar bar1"></view>
+      <view class="bar bar2"></view>
+      <view class="bar bar3"></view>
+    </view>
   </view>
 </view>
