@@ -98,7 +98,6 @@
 
     <view class="flim">
       <image class="flimImg" src="/images/photo/05.jpg" mode="aspectFill" />
-      <image class="flimBorder" src="/images/static/flim.png" mode="aspectFit" />
     </view>
   </view>
 
@@ -156,21 +155,11 @@
       </view>
     </view>
 
-    <view class="end-area">
-      <view class="sLine">
-        <image src="/images/static/ls.png" mode="widthFix" />
-      </view>
-    </view>
   </view>
 
-  <!-- ============================================================ -->
-  <!-- 右上角悬浮导航按钮（调起微信地图导航）+ 页尾留白 -->
-  <!-- ============================================================ -->
+  <!-- 右上角悬浮导航按钮（调起微信地图导航） -->
   <view class="nav" bindtap="onNavigate">
     <image src="/images/static/nav.png" mode="aspectFit" />
-  </view>
-  <view class="pic">
-    <image src="/images/static/l2.png" mode="widthFix" />
   </view>
 
   <!-- 背景音乐按钮 -->

@@ -20,7 +20,7 @@
  *    images/cover.jpg - 转发到好友/朋友圈时显示的封面图
  *
  * 四、images/static/ 目录是静态装饰图，无需改动
- *    （包含 l1.png、l2.png、ls.png、flim.png、nav.png）
+ *    （包含 l1.png、ls.png、nav.png）
  *
  * 五、用微信开发者工具打开
  *    1. 打开微信开发者工具 → 导入项目
