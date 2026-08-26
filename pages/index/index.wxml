@@ -157,6 +157,9 @@
 
   </view>
 
+  <!-- 右上角悬浮分享按钮 -->
+  <button class="share-btn" open-type="share">分享</button>
+
   <!-- 右上角悬浮导航按钮（调起微信地图导航） -->
   <view class="nav" bindtap="onNavigate">
     <image src="/images/static/nav.png" mode="aspectFit" />

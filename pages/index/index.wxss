@@ -53,7 +53,7 @@
 
 .mainContent .nav {
   position: fixed;
-  top: 110rpx;
+  top: 200rpx;
   right: 30rpx;
   width: 70rpx;
   height: 70rpx;
@@ -68,6 +68,37 @@
 .mainContent .nav image {
   width: 44rpx;
   height: 44rpx;
+}
+
+.share-btn {
+  position: fixed;
+  top: 110rpx;
+  right: 30rpx;
+  width: 70rpx !important;
+  height: 70rpx !important;
+  min-width: 70rpx !important;
+  min-height: 70rpx !important;
+  max-width: 70rpx !important;
+  max-height: 70rpx !important;
+  border-radius: 35rpx !important;
+  background-color: rgba(122, 81, 56, 0.7) !important;
+  color: #cebdb5 !important;
+  box-shadow: #4b352b 0 0 6rpx 1rpx;
+  z-index: 999;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  line-height: 1 !important;
+  overflow: hidden !important;
+  font-size: 20rpx !important;
+  font-weight: normal !important;
+  letter-spacing: 0 !important;
+}
+.share-btn::after {
+  border: none;
 }
 
 /* 背景音乐按钮（右上角顶部） */
