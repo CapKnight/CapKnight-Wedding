@@ -81,7 +81,7 @@ Page({
     })
 
     // 启动倒计时
-    this._ceremonyTime = new Date(g.ceremonyDateTime || '2026-09-26 11:30:00').getTime()
+    this._ceremonyTime = new Date(g.ceremonyDateTime || '2026-09-26 12:00:00').getTime()
     this._updateCountdown()
     this._cdTimer = setInterval(() => {
       this._updateCountdown()
@@ -92,11 +92,11 @@ Page({
     this._audio.src = '/music/bgm.mp3'
     this._audio.loop = true
 
-    // 显示进入提示框，5 秒后自动消失
+    // 显示进入提示框，10 秒后自动消失
     this.setData({ showEntryTip: true })
     this._tipTimer = setTimeout(() => {
       this.setData({ showEntryTip: false })
-    }, 5000)
+    }, 10000)
   },
 
   // 手动关闭进入提示框

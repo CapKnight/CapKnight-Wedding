@@ -5,6 +5,7 @@
   <view class="entry-tip" wx:if="{{showEntryTip}}">
     <view class="entry-tip-content">
       点击右上角音乐图标播放歌曲，新郎选了很久的~
+      点击右上角导航图标可以直接跳转开启导航~
     </view>
     <view class="entry-tip-close" bindtap="closeEntryTip">×</view>
   </view>
@@ -35,6 +36,32 @@
   <view class="page0">
     <view class="img0">
       <image src="/images/photo/02.jpg" mode="widthFix" />
+    </view>
+
+    <!-- ============================================================ -->
+    <!-- ③ eAddr.vue  时间地点（挪到 02.jpg 下方、倒计时上方） -->
+    <!-- ============================================================ -->
+    <view class="eAddr" id="addr">
+      <view class="bTitle">
+        <view class="left line"></view>
+        <view class="title">时间地点</view>
+        <view class="right line"></view>
+      </view>
+
+      <view class="text">{{timeText}}</view>
+      <view class="text ceremony-time">预计婚礼举行时间：12:00AM</view>
+      <view class="text venue-text">{{venueName}} {{venueHall}}</view>
+      <view class="text venue-text">{{venueAddress}}</view>
+      <view class="tips">（点击右上角导航图标可导航至这个位置）</view>
+
+      <view class="ptBox">
+        <view class="pt pt1">
+          <image src="/images/photo/09.jpg" mode="widthFix" />
+        </view>
+        <view class="pt pt2">
+          <image src="/images/photo/08.jpg" mode="widthFix" />
+        </view>
+      </view>
     </view>
 
     <!-- 倒计时 -->
@@ -102,32 +129,6 @@
   </view>
 
   <!-- ============================================================ -->
-  <!-- ③ eAddr.vue  时间地点 -->
-  <!-- ============================================================ -->
-  <view class="eAddr" id="addr">
-    <view class="bTitle">
-      <view class="left line"></view>
-      <view class="title">时间地点</view>
-      <view class="right line"></view>
-    </view>
-
-    <view class="text">{{timeText}}</view>
-    <view class="text ceremony-time">预计婚礼举行时间：11:30AM</view>
-    <view class="text venue-text">{{venueName}} {{venueHall}}</view>
-    <view class="text venue-text">{{venueAddress}}</view>
-    <view class="tips">（点击右上角导航图标可导航至这个位置）</view>
-
-    <view class="ptBox">
-      <view class="pt pt1">
-        <image src="/images/photo/09.jpg" mode="widthFix" />
-      </view>
-      <view class="pt pt2">
-        <image src="/images/photo/08.jpg" mode="widthFix" />
-      </view>
-    </view>
-  </view>
-
-  <!-- ============================================================ -->
   <!-- ⑥ eTips.vue  婚礼 Tips + 结尾 -->
   <!-- ============================================================ -->
   <view class="eTips">
@@ -161,16 +162,8 @@
   <button class="share-btn" open-type="share">分享</button>
 
   <!-- 右上角悬浮导航按钮（调起微信地图导航） -->
-  <view class="nav" bindtap="onNavigate">
-    <image src="/images/static/nav.png" mode="aspectFit" />
-  </view>
+  <view class="nav" bindtap="onNavigate">导航</view>
 
   <!-- 背景音乐按钮 -->
-  <view class="music-btn {{musicPlaying ? 'playing' : ''}}" bindtap="toggleMusic">
-    <view class="music-icon">
-      <view class="bar bar1"></view>
-      <view class="bar bar2"></view>
-      <view class="bar bar3"></view>
-    </view>
-  </view>
+  <view class="music-btn {{musicPlaying ? 'playing' : ''}}" bindtap="toggleMusic">音乐</view>
 </view>

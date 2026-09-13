@@ -55,7 +55,7 @@ App({
     // ===== 婚礼地点（eAddr 节 与 独立 location 页共用）=====
     venueName: '食神酒店',
     venueHall: '三楼',
-    venueAddress: '河南省南阳市卧龙区张衡街道仲景大道辅路长安1号写字楼',
+    venueAddress: '张衡路与仲景路交汇处向南100米',
     // 经纬度：到 https://lbs.qq.com/getPoint/ 拾取后填入（前纬后经）
     latitude: 33.020855,
     longitude: 112.554214,

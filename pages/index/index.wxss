@@ -64,10 +64,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.mainContent .nav image {
-  width: 44rpx;
-  height: 44rpx;
+  color: #cebdb5;
+  font-size: 20rpx;
+  font-weight: normal;
+  line-height: 1;
 }
 
 .share-btn {
@@ -115,48 +115,10 @@
   justify-content: center;
   z-index: 999;
   box-shadow: #4b352b 0 0 6rpx 1rpx;
-}
-
-.music-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 36rpx;
-  gap: 4rpx;
-}
-
-.music-icon .bar {
-  width: 5rpx;
-  height: 14rpx;
-  background-color: #cebdb5;
-  border-radius: 2rpx;
-}
-
-/* 暂停状态：三根柱子高度统一（静态） */
-.music-btn .bar1 { height: 14rpx; }
-.music-btn .bar2 { height: 22rpx; }
-.music-btn .bar3 { height: 14rpx; }
-
-/* 播放状态：三根柱子高度错开 + 跳动动画 */
-.music-btn.playing .bar1 {
-  height: 30rpx;
-  animation: barWave 0.9s ease-in-out infinite;
-  animation-delay: 0s;
-}
-.music-btn.playing .bar2 {
-  height: 14rpx;
-  animation: barWave 0.9s ease-in-out infinite;
-  animation-delay: 0.2s;
-}
-.music-btn.playing .bar3 {
-  height: 24rpx;
-  animation: barWave 0.9s ease-in-out infinite;
-  animation-delay: 0.4s;
-}
-
-@keyframes barWave {
-  0%, 100% { transform: scaleY(0.4); }
-  50%      { transform: scaleY(1); }
+  color: #cebdb5;
+  font-size: 20rpx;
+  font-weight: normal;
+  line-height: 1;
 }
 
 /* ==================== ① topTitle.vue ==================== */
